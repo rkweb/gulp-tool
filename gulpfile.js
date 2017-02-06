@@ -1,6 +1,6 @@
-var imgSrc = "C:/Users/renke/Desktop/imgmin/";
-// var imgSrc = "E:/auto/2016/1017/invitation1/";
-// var imgSrc = "C:/Users/renke/Desktop/instrument-panel/";
+var path = "C:/Users/renke/Desktop/imgmin/";  //项目绝对路径
+// var path = "E:/auto/2016/1017/invitation1/";
+// var path = "D:/go/2016/1226/tissot/";
 
 var gulp = require('gulp'),
   browserSync = require('browser-sync').create(),
@@ -18,113 +18,102 @@ var gulp = require('gulp'),
 
 // js合并压缩 
 gulp.task('js', function(){
-  gulp.src(imgSrc+'/js/*.js')
+  gulp.src(path+'/js/*.js')
     .pipe(uglifyjs('main.min.js', {
       mangle: true,
       output: {
         beautify: false
       }
     }))
-    .pipe(gulp.dest(imgSrc+'/js'));
+    .pipe(gulp.dest(path+'/js'));
 });
 
 // css合并压缩
 gulp.task('css', function(){
-  	gulp.src(imgSrc+'/css/*.css')
+  	gulp.src(path+'/css/*.css')
     .pipe(concat('all.css'))
     .pipe(rename({ suffix: '.min' }))
     .pipe(minifyCss())
-    .pipe(gulp.dest(imgSrc+'./css'));
+    .pipe(gulp.dest(path+'./css'));
 });
 
 // 图片压缩
 gulp.task('img', function () {
-   gulp.src(imgSrc+'/**/*')
-    .pipe(gulp.dest(imgSrc+'/'))
+   gulp.src(path+'/**/*')
+    .pipe(gulp.dest(path+'/'))
     .pipe(imagemin([imagemin.gifsicle(), imagemin.jpegtran(), imagemin.optipng(), imagemin.svgo(),mozjpeg({quality: '60'}),
         pngquant({quality: '60-80'})]))
-    .pipe(gulp.dest(imgSrc+'/'));
+    .pipe(gulp.dest(path+'/'));
 });
 
 // 浏览器自动刷新
 gulp.task('browser-sync',function(){
 	var files = [
-    	imgSrc+'/**/*.html',
-    	imgSrc+'/**/*.css',
-    	imgSrc+'/**/*.js'
+    	path+'/**/*.html',
+    	path+'/**/*.css',
+    	path+'/**/*.js'
   	];
   	browserSync.init(files,{
 	    server: {
-	      baseDir: imgSrc+"/"
+	      baseDir: path+"/"
 	    }
   	});
 });
 
 //sass编译
 gulp.task('sass', function () {
-  return gulp.src(imgSrc+'/css/**/*.scss')
+  return gulp.src(path+'/css/**/*.scss')
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest(imgSrc+'/css'));
+    .pipe(gulp.dest(path+'/css'));
 });
  
 gulp.task('sass:watch', function () {
-  gulp.watch(imgSrc+'./css/**/*.scss', ['sass']);
+  gulp.watch(path+'./css/**/*.scss', ['sass']);
 });
 
 // compass编译
 gulp.task('compass', function() {
-  gulp.src(imgSrc+'/css/**/*.scss')
+  gulp.src(path+'/css/**/*.scss')
     .pipe(compass())
-    .pipe(gulp.dest(imgSrc+'/css'));
+    .pipe(gulp.dest(path+'/css'));
 });
 gulp.task('compass:watch', function () {
-  gulp.watch(imgSrc+'./css/**/*.scss', ['sass']);
+  gulp.watch(path+'./css/**/*.scss', ['sass']);
 });
 
 
 // css sprite
 gulp.task('css_sprite', function() {
-  return gulp.src(imgSrc+'/css/**/main.css')
+  return gulp.src(path+'/css/**/main.css')
       .pipe(spriter({
-        'spriteSheet':imgSrc+'/image/sprite.png',
+        'spriteSheet':path+'/image/sprite.png',
         'pathToSpriteSheetFromCSS': '../image/sprite.png'
       }))
-      .pipe(gulp.dest(imgSrc+'/css'));
+      .pipe(gulp.dest(path+'/css'));
 });
 
 
 // 生成jpg雪碧图
 gulp.task('sprite-jpg', function () {
-  var spriteData = gulp.src(imgSrc+'/*.jpg').pipe(spritesmith({
+  var spriteData = gulp.src(path+'/*.jpg').pipe(spritesmith({
     imgName: 'sprite.jpg',
     cssName: 'sprite.css',
     algorithm:'left-right',
     padding:0
   }));
-  return spriteData.pipe(gulp.dest(imgSrc+'/image/sprite/'));
+  return spriteData.pipe(gulp.dest(path+'/image/sprite/'));
 });
 
 
 // 生成png雪碧图
 gulp.task('sprite-png', function () {
-  var spriteData = gulp.src(imgSrc+'/*.png').pipe(spritesmith({
+  var spriteData = gulp.src(path+'/*.png').pipe(spritesmith({
     imgName: 'sprite.png',
     cssName: 'sprite.css',
     algorithm:'left-right',
     padding:0
   }));
-  return spriteData.pipe(gulp.dest(imgSrc+'/image/sprite/'));
+  return spriteData.pipe(gulp.dest(path+'/image/sprite/'));
 });
 
 gulp.task('default',['browser-sync','compass:watch']); //定义默认任务
-
-
-
-
-
-
-
-
-
-
-
