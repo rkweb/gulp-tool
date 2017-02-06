@@ -1,0 +1,29 @@
+{
+  "name": "f2e",
+  "version": "1.0.0",
+  "description": "gulp",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "latest",
+    "browser-sync": "latest",
+    "gulp-concat": "latest",  
+    "gulp-minify-css": "latest",
+    "gulp-minify-html": "latest",
+    "gulp-rename": "latest",
+    "gulp-sass-china": "latest",
+    "gulp-compass": "latest",
+    "gulp-css-spriter": "latest",
+    "gulp.spritesmith": "latest",
+    "gulp-imagemin": "latest",
+    "imagemin-mozjpeg": "latest",
+    "imagemin-pngquant": "latest",
+    "gulp-uglifyjs": "latest"
+  },
+  "dependencies": {
+  }
+}
