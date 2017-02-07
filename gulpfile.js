@@ -101,7 +101,7 @@ gulp.task('sprite-jpg', function () {
     algorithm:'left-right',
     padding:0
   }));
-  return spriteData.pipe(gulp.dest(path+'/image/sprite/'));
+  return spriteData.pipe(gulp.dest(path+'/sprite/'));
 });
 
 
@@ -113,7 +113,7 @@ gulp.task('sprite-png', function () {
     algorithm:'left-right',
     padding:0
   }));
-  return spriteData.pipe(gulp.dest(path+'/image/sprite/'));
+  return spriteData.pipe(gulp.dest(path+'/sprite/'));
 });
 
 gulp.task('default',['browser-sync','compass:watch']); //定义默认任务
