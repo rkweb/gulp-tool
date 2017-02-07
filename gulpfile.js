@@ -1,6 +1,4 @@
 var path = "C:/Users/renke/Desktop/imgmin/";  //项目绝对路径
-// var path = "E:/auto/2016/1017/invitation1/";
-// var path = "D:/go/2016/1226/tissot/";
 
 var gulp = require('gulp'),
   browserSync = require('browser-sync').create(),
