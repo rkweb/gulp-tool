@@ -15,5 +15,7 @@
 2. 修改gulpfile.js 中第一行 var path = "项目本地绝对路径"，如：`var path = "D:/go/2017/0101/app/";`
 
 `$ gulp
+
 $ gulp css
+
 $gulp js`
