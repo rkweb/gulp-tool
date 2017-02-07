@@ -15,7 +15,7 @@
 2. 修改gulpfile.js 中第一行 var path = "项目本地绝对路径"，如：`var path = "D:/go/2017/0101/app/";`
 3. 根据需求执行如需命令
 
-    	gulp  //默认执行 sass编译、保存代码时浏览器自动刷新
+    	gulp  //默认执行 sass实时编译、保存代码时浏览器自动刷新
     	gulp css  //css合并压缩，生成all.min.css
     	gulp js   //js 合并压缩，生成 main.min.css
 		gulp img  // 压缩目录下的所有图片
