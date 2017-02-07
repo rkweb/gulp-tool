@@ -12,7 +12,7 @@
 ### 使用方法
 
 1. 安装gulp [http://www.ydcss.com/archives/18](http://www.ydcss.com/archives/18)
-2. 跟目录下 执行 `npm install` 
+2. 根目录下 执行 `npm install` 
 3. 修改gulpfile.js 中第一行 var path = "项目本地绝对路径"，如：`var path = "D:/go/2017/0101/app/";`
 4. 根据需求执行如需命令
 
