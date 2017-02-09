@@ -1,6 +1,4 @@
 var path = "C:/Users/renke/Desktop/imgmin/";  //项目绝对路径
-// var path = "E:/auto/2016/1017/invitation1/";
-// var path = "D:/go/2016/1226/tissot/";
 
 var gulp = require('gulp'),
   browserSync = require('browser-sync').create(),
@@ -14,8 +12,8 @@ var gulp = require('gulp'),
   imagemin = require('gulp-imagemin'),
   mozjpeg = require('imagemin-mozjpeg'),
   pngquant = require('imagemin-pngquant'),
-  spriter = require('gulp-css-spriter');
-
+  spriter = require('gulp-css-spriter'),
+  assetRev = require('gulp-asset-rev');
 // js合并压缩 
 gulp.task('js', function(){
   gulp.src(path+'/js/*.js')
@@ -114,6 +112,25 @@ gulp.task('sprite-png', function () {
     padding:0
   }));
   return spriteData.pipe(gulp.dest(path+'/sprite/'));
+});
+
+gulp.task('revJs', function(){
+  gulp.src(path+'/js/**/*.js')
+  .pipe(assetRev())
+  .pipe(gulp.dest(path+'/js'));
+});
+
+gulp.task('revCss', function(){
+  gulp.src([path+'/css/**/*.css',path+'/css/**/*.scss',path+'/css/**/*.less'])
+  .pipe(assetRev())
+  .pipe(gulp.dest(path+'/css'));
+});
+
+//加版本号
+gulp.task('rev', ['revJs', 'revCss'], function(){
+  gulp.src([path+'/*.html']) 
+  .pipe(assetRev())
+  .pipe(gulp.dest(path+'/'));
 });
 
 gulp.task('default',['browser-sync','compass:watch']); //定义默认任务

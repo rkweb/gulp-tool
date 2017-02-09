@@ -20,6 +20,7 @@
     "gulp-css-spriter": "latest",
     "gulp.spritesmith": "latest",
     "gulp-imagemin": "latest",
+    "gulp-asset-rev": "latest",
     "imagemin-mozjpeg": "latest",
     "imagemin-pngquant": "latest",
     "gulp-uglifyjs": "latest"
