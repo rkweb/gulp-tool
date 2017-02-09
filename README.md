@@ -24,4 +24,5 @@
 		gulp sass:watch // 实时编译sass
         gulp sprite-jpg //生成jpg雪碧图，序列帧图片需要放到与index.html同级目录下，生成的雪碧图默认在根目录下sprite文件夹中，雪碧图从左到右依次排列。
 		gulp sprite-png // 生成png雪碧图，其他同上。
- 		gulp browser-sync  //保存代码时浏览器自动刷新  
+ 		gulp browser-sync  //保存代码时浏览器自动刷新
+        gulp rev   // 静态文件加版本号  
