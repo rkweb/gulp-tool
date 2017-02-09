@@ -133,4 +133,4 @@ gulp.task('rev', ['revJs', 'revCss'], function(){
   .pipe(gulp.dest(path+'/'));
 });
 
-gulp.task('default',['browser-sync','compass:watch']); //定义默认任务
+gulp.task('default',['browser-sync','sass:watch']); //定义默认任务
