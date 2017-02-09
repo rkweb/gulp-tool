@@ -1,4 +1,4 @@
-var path = "C:/Users/renke/Desktop/imgmin/";  //项目绝对路径
+var path = "D:/go/2016/1226/ball/image/";  //项目绝对路径
 
 var gulp = require('gulp'),
   browserSync = require('browser-sync').create(),
@@ -76,7 +76,7 @@ gulp.task('compass', function() {
     .pipe(gulp.dest(path+'/css'));
 });
 gulp.task('compass:watch', function () {
-  gulp.watch(path+'./css/**/*.scss', ['sass']);
+  gulp.watch(path+'./css/**/*.scss', ['compass']);
 });
 
 
