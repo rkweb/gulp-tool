@@ -1,19 +1,19 @@
-var path = "D:/go/2016/1226/ball/image/";  //项目绝对路径
+var path = "C:\\Users\\renke\\Desktop\\sass\\";  //项目绝对路径
 
 var gulp = require('gulp'),
-  browserSync = require('browser-sync').create(),
-  rename = require('gulp-rename'),
-  uglifyjs = require("gulp-uglifyjs"),
-  minifyCss = require("gulp-minify-css"),
-  sass = require("gulp-sass-china"),
-  concat = require("gulp-concat"),
-  compass = require('gulp-compass'),
-  spritesmith = require('gulp.spritesmith'),
-  imagemin = require('gulp-imagemin'),
-  mozjpeg = require('imagemin-mozjpeg'),
-  pngquant = require('imagemin-pngquant'),
-  spriter = require('gulp-css-spriter'),
-  assetRev = require('gulp-asset-rev');
+browserSync = require('browser-sync').create(),
+rename = require('gulp-rename'),
+uglifyjs = require("gulp-uglifyjs"),
+minifyCss = require("gulp-minify-css"),
+sass = require("gulp-sass"),
+concat = require("gulp-concat"),
+compass = require('gulp-compass'),
+spritesmith = require('gulp.spritesmith'),
+imagemin = require('gulp-imagemin'),
+mozjpeg = require('imagemin-mozjpeg'),
+pngquant = require('imagemin-pngquant'),
+spriter = require('gulp-css-spriter'),
+assetRev = require('gulp-asset-rev');
 // js合并压缩 
 gulp.task('js', function(){
   gulp.src(path+'/js/*.js')
@@ -28,7 +28,7 @@ gulp.task('js', function(){
 
 // css合并压缩
 gulp.task('css', function(){
-  	gulp.src(path+'/css/*.css')
+    gulp.src(path+'/css/*.css')
     .pipe(concat('all.css'))
     .pipe(rename({ suffix: '.min' }))
     .pipe(minifyCss())
@@ -37,27 +37,26 @@ gulp.task('css', function(){
 
 // 图片压缩
 gulp.task('img', function () {
-   gulp.src(path+'/**/*')
+   gulp.src([path+'/**/*','!'+path+'/dist/**/*'])
     .pipe(gulp.dest(path+'/'))
-    .pipe(imagemin([imagemin.gifsicle(), imagemin.jpegtran(), imagemin.optipng(), imagemin.svgo(),mozjpeg({quality: '60'}),
-        pngquant({quality: '60-80'})]))
+    .pipe(imagemin([imagemin.gifsicle(), imagemin.jpegtran(), imagemin.optipng(), imagemin.svgo(),mozjpeg({quality: '80'}),
+        pngquant({quality: '70'})]))
     .pipe(gulp.dest(path+'/'));
 });
 
 // 浏览器自动刷新
 gulp.task('browser-sync',function(){
-	var files = [
-    	path+'/**/*.html',
-    	path+'/**/*.css',
-    	path+'/**/*.js'
-  	];
-  	browserSync.init(files,{
-	    server: {
-	      baseDir: path+"/"
-	    }
-  	});
+  var files = [
+      path+'/**/*.html',
+      path+'/**/*.css',
+      path+'/**/*.js'
+    ];
+    browserSync.init(files,{
+      server: {
+        baseDir: path+"/"
+      }
+    });
 });
-
 //sass编译
 gulp.task('sass', function () {
   return gulp.src(path+'/css/**/*.scss')
@@ -133,4 +132,4 @@ gulp.task('rev', ['revJs', 'revCss'], function(){
   .pipe(gulp.dest(path+'/'));
 });
 
-gulp.task('default',['browser-sync','sass:watch']); //定义默认任务
+// gulp.task('default',['browser-sync','sass:watch']); //定义默认任务

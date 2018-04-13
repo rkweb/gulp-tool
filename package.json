@@ -11,20 +11,21 @@
   "devDependencies": {
     "gulp": "latest",
     "browser-sync": "latest",
-    "gulp-concat": "latest",  
+    "gulp-concat": "latest",
     "gulp-minify-css": "latest",
     "gulp-minify-html": "latest",
     "gulp-rename": "latest",
-    "gulp-sass-china": "latest",
+    "gulp-sass": "latest",
     "gulp-compass": "latest",
     "gulp-css-spriter": "latest",
     "gulp.spritesmith": "latest",
-    "gulp-imagemin": "latest",
+    "gulp-imagemin": "^4.1.0",
     "gulp-asset-rev": "latest",
-    "imagemin-mozjpeg": "latest",
-    "imagemin-pngquant": "latest",
-    "gulp-uglifyjs": "latest"
+    "imagemin-mozjpeg": "^7.0.0",
+    "imagemin-pngquant": "^5.0.1",
+    "gulp-uglifyjs": "latest",
+    "gulp-replace": "latest",
+    "gulp-rev-collector": "latest"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
