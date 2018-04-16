@@ -1,4 +1,4 @@
-var path = "C:\\Users\\renke\\Desktop\\sass\\";  //项目绝对路径
+var path = "C:\\Users\\renke\\Desktop\\im\\";  //项目绝对路径
 
 var gulp = require('gulp'),
 browserSync = require('browser-sync').create(),
